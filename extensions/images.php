@@ -29,7 +29,7 @@
 							$imgs[$link] = "http://yfrog.com/" . $imgid . ".th.jpg";
 						}
 						if($domain == "tweetphoto.com" || $domain == "pic.gd" || $domain == "plixi.com"){
-							$imgs[$link] = "http://tweetphotoapi.com/api/TPAPI.svc/imagefromurl?size=thumbnail&url=" . $link;
+							$imgs[$link] = "http://api.plixi.com/api/tpapi.svc/imagefromurl?size=medium&url=" . $link;
 						}
 						if($domain == "twitgoo.com"){
 							$values = simplexml_load_string(getURL("http://twitgoo.com/api/message/info/" . $imgid));
