@@ -367,7 +367,7 @@
 	function linkifyTweet($str){
 		$html = preg_replace("/\b(((https*:\/\/)|www\.).+?)(([!?,.\"\)]+)?(\s|$))/e", "_linkifyTweet_link('$1', '$2', '$3', '$4')", $str);
 		$html = preg_replace("/\B\@([a-zA-Z0-9_]{1,20}(\/\w+)?)/e", "_linkifyTweet_at('$1', '$2')", $html);
-		$html = preg_replace("/\B\#(\w+)/e", "_linkifyTweet_hashtag('$1', '$2')", $html);
+		$html = preg_replace("/\B\#(\S+)/e", "_linkifyTweet_hashtag('$1', '$2')", $html);
 		return $html;
 	}
 	
