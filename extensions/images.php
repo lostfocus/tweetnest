@@ -28,7 +28,7 @@
 						if($domain == "yfrog.com" || $domain == "yfrog.us"){
 							$imgs[$link] = "http://yfrog.com/" . $imgid . ".th.jpg";
 						}
-						if($domain == "tweetphoto.com" || $domain == "pic.gd" || $domain == "plixi.com"){
+						if($domain == "tweetphoto.com" || $domain == "pic.gd" || $domain == "plixi.com" || $domain == "lockerz.com"){
 							$imgs[$link] = "http://tweetphotoapi.com/api/TPAPI.svc/imagefromurl?size=thumbnail&url=" . $link;
 						}
 						if($domain == "twitgoo.com"){
