@@ -17,6 +17,25 @@
 		public function enhanceTweet($tweet){
 			$imgs  = array();
 			$links = findURLs($tweet['text']);
+
+			foreach($links as $link => $l){
+				$curl = curl_init($link);
+				curl_setopt_array($curl, array(
+								CURLOPT_USERAGENT => "Mozilla/5.0 (Compatible; libCURL)",
+								CURLOPT_TIMEOUT => 5,
+								CURLOPT_RETURNTRANSFER => 1,
+								CURLOPT_FOLLOWLOCATION => 1,
+								CURLOPT_MAXREDIRS => 3,
+								CURLOPT_NOBODY => 1,
+						));
+
+				$longurl = curl_exec($curl);
+				$url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
+				$url = parse_url($url);
+
+				$links[$link] = $url;
+			}
+
 			foreach($links as $link => $l){
 				if(is_array($l) && array_key_exists("host", $l) && array_key_exists("path", $l)){
 					$domain = domain($l['host']);
