@@ -35,6 +35,10 @@
 							$values = simplexml_load_string(getURL("http://twitgoo.com/api/message/info/" . $imgid));
 							$imgs[$link] = (string) $values->thumburl;
 						}
+						if($domain == "pixi.li"){
+							$values = simplexml_load_string(getURL("http://pixi.li/service/oembed?url=".$link."&maxwidth=300&format=xml"));
+							$imgs[$link] = (string) $values->url;
+						}
 						if($domain == "img.ly"){
 							$imgs[$link] = "http://img.ly/show/thumb/" . $imgid;
 						}
