@@ -36,7 +36,7 @@
 							$imgs[$link] = (string) $values->thumburl;
 						}
 						if($domain == "pixi.li"){
-							$values = simplexml_load_string(getURL("http://pixi.li/service/oembed?url=".$link."&maxwidth=300&format=xml"));
+							$values = simplexml_load_string(getURL("http://pixi.li/service/oembed?url=http://pixi.li/".$imgid."&maxwidth=300&format=xml"));
 							$imgs[$link] = (string) $values->url;
 						}
 						if($domain == "img.ly"){
