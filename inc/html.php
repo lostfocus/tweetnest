@@ -145,8 +145,7 @@
 				$t . "\t<p class=\"text\">" . 
 				($rt ? "<a class=\"rt\" href=\"http://twitter.com/" . $retweet['screenname'] . "\"><strong>" . $retweet['screenname'] . "</strong></a> " : "") . 
 				
-				nl2br(p(highlightQuery($htmlcontent, $tweet), 3)) . "</p>\n" . 
-				
+				nl2br(p(highlightQuery(emojifyTweet($htmlcontent), $tweet), 3)) . "</p>\n" . 
 				$t . "\t<p class=\"meta\">\n" . $t . "\t\t<a href=\"http://twitter.com/" . s($rt ? $retweet['screenname'] : $tweet['screenname']) . "/statuses/" . s($rt ? $retweet['tweetid'] : $tweet['tweetid']) . "\" class=\"permalink\">" . date("g:i A, M jS, Y", ($rt ? $retweet['time'] : $tweet['time'])) . "</a>\n" . 
 				$t . "\t\t<span class=\"via\">via " . ($rt ? $retweet['source'] : $tweet['source']) . "</span>\n" .
 				($rt ? $t . "\t\t<span class=\"rted\">(retweeted on " . date("g:i A, M jS, Y", $tweet['time']) . " <span class=\"via\">via " . $tweet['source'] . "</span>)</span>\n" : "") . 
@@ -394,6 +393,11 @@
 			$html = preg_replace("/\B\@([a-zA-Z0-9_]{1,20}(\/\w+)?)/e", "_linkifyTweet_at('$1', '$2')", $html);
 			$html = preg_replace("/\B\#([\pL|0-9|_]+)/eu", "_linkifyTweet_hashtag('$1', '$2')", $html);
 		}
+		return $html;
+	}
+
+	function emojifyTweet($str){
+		$html = emoji_unified_to_html(emoji_softbank_to_unified($str));
 		return $html;
 	}
 	

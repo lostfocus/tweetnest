@@ -17,6 +17,7 @@
 	<meta name="author" content="<?php echo s($author['realname']); ?>" />
 	<link rel="stylesheet" href="<?php echo s($styleFile); ?>" type="text/css" />
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/<?php echo s($jQueryVersion); ?>/jquery.min.js"></script>
+	<link rel="stylesheet" href="<?php echo $path; ?>/emoji.css" type="text/css" />
 	<script type="text/javascript" src="<?php echo $path; ?>/tweets.js"></script>
 </head>
 <body>
