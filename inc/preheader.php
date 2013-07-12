@@ -59,7 +59,8 @@
 	$highlightedMonths = array();
 	$filterMode        = 'search';
 	$home              = false;
-	$jQueryVersion     = '1';
+	$jQueryVersion     = "1.5.1";
+	$isSearch          = false;
 	
 	// Getting database time offset
 	$dbtQ = $db->query('SELECT TIMESTAMPDIFF(SECOND, UTC_TIMESTAMP(), NOW()) AS `diff`');

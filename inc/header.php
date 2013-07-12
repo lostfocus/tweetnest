@@ -18,6 +18,9 @@
 	<link rel="stylesheet" href="<?php echo s($styleFile); ?>" type="text/css" />
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/<?php echo s($jQueryVersion); ?>/jquery.min.js"></script>
 	<link rel="stylesheet" href="<?php echo $path; ?>/emoji.css" type="text/css" />
+	<?php if($isSearch):?>
+	<link rel="alternate" type="application/atom+xml" href="<?php echo $path; ?>/searchfeed?q=<?php echo s($searchQuery); ?>" title="Atom Feed" />	
+	<?php endif;?>
 	<script type="text/javascript" src="<?php echo $path; ?>/tweets.js"></script>
 </head>
 <body>
